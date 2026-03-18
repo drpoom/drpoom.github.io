@@ -1,0 +1,16 @@
+title: Dr. Poom Kongniratsaikul
+email: poomkongniratsaikul@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Test Manager & System Integration Expert portfolio and blog.
+baseurl: ""
+url: "https://drpoom.com"
+
+# Build settings
+markdown: kramdown
+theme: null # We are using our own CSS
+
+# Ignore these files from Jekyll build
+exclude:
+  - README.md
+  - .DS_Store
+  - Profile.pdf

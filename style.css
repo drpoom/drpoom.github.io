@@ -517,3 +517,76 @@ ul {
         display: none; /* Can implement a hamburger menu later if needed */
     }
 }
+
+/* ==========================================================================
+   Blog / Articles Content
+   ========================================================================== */
+.post-container {
+    max-width: 800px;
+}
+
+.post-content h1, 
+.post-content h2, 
+.post-content h3 {
+    font-family: var(--font-retro);
+    color: var(--text-main);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+    line-height: 1.8;
+}
+
+.post-content a {
+    text-decoration: underline;
+    text-decoration-color: var(--border-color);
+}
+
+.post-content a:hover {
+    text-decoration-color: var(--accent);
+}
+
+.post-content ul, 
+.post-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    color: var(--text-main);
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.post-content code {
+    background-color: var(--bg-card);
+    padding: 0.2rem 0.4rem;
+    border: 1px solid var(--border-color);
+    font-family: var(--font-main);
+    font-size: 0.9em;
+    color: var(--accent);
+}
+
+.post-content pre {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.post-content pre code {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: var(--text-main);
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    margin: 2rem 0;
+}

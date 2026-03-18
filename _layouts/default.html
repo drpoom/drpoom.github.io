@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <!-- Google Fonts: Silkscreen for subtle retro headers, Fira Code for modern tech body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Silkscreen&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+<body>
+
+    {% if page.url == '/' %}
+    <!-- Boot Sequence Overlay (Only on homepage) -->
+    <div id="boot-screen">
+        <div id="boot-text"></div>
+        <div class="cursor"></div>
+    </div>
+    {% endif %}
+
+    <!-- Main Content (Hidden initially during boot on homepage) -->
+    <main id="main-content" class="hidden">
+        
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand"><a href="{{ '/' | relative_url }}" style="color: var(--accent); text-decoration: none;">SYS_INIT</a></div>
+            <ul class="nav-links">
+                <li><a href="{{ '/' | relative_url }}#about">About</a></li>
+                <li><a href="{{ '/' | relative_url }}#experience">Experience</a></li>
+                <li><a href="{{ '/' | relative_url }}#education">Education</a></li>
+                <li><a href="{{ '/' | relative_url }}#skills">Skills</a></li>
+                <li><a href="{{ '/' | relative_url }}#projects">Projects</a></li>
+                <li><a href="{{ '/' | relative_url }}#articles">Articles</a></li>
+                <li><a href="{{ '/' | relative_url }}#interests">Interests</a></li>
+                <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        {{ content }}
+
+    </main>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h2 class="section-title">Ping_Me <span class="blink">_</span></h2>
+            <p>Ready to collaborate or discuss embedded systems? My inbox is always open.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/drpoom/" target="_blank" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/drpoom" target="_blank" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:poomkongniratsaikul@gmail.com" class="social-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© 2026 Dr. Poom Kongniratsaikul. Built with minimalist retro tech.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="{{ '/script.js' | relative_url }}"></script>
+</body>
+</html>
