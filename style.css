@@ -336,6 +336,7 @@ ul {
     font-weight: 600;
     color: var(--text-main);
     font-size: 1.2rem;
+    font-variant-ligatures: none; /* Prevents dots from centering in abbreviations like Dr. */
 }
 
 .timeline-content .company {
