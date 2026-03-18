@@ -1,0 +1,518 @@
+/* ==========================================================================
+   CSS Variables & Theming (Minimalist Modern-Retro)
+   ========================================================================== */
+   :root {
+    /* Color Palette - Deep Slate with Cyan Accent */
+    --bg-dark: #0f172a;       /* Deep slate/charcoal background */
+    --bg-card: #1e293b;       /* Slightly lighter slate for cards */
+    --text-main: #e2e8f0;     /* Off-white readable text */
+    --text-muted: #94a3b8;    /* Muted gray for secondary text */
+    --accent: #38bdf8;        /* Electric/Muted Cyan accent */
+    --accent-hover: #0ea5e9;  /* Darker cyan for hover states */
+    --border-color: #334155;  /* Subtle borders */
+
+    /* Typography */
+    --font-main: 'Fira Code', monospace;   /* Clean modern tech body */
+    --font-retro: 'Silkscreen', cursive;   /* Subtle 8-bit headers */
+
+    /* Spacing & Layout */
+    --max-width: 1000px;
+    --transition: all 0.2s ease-in-out;
+}
+
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .nav-brand {
+    font-family: var(--font-retro);
+    font-weight: normal;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   Boot Screen Animation
+   ========================================================================== */
+#boot-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--bg-dark);
+    color: var(--accent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+#boot-text {
+    white-space: pre-wrap;
+}
+
+.cursor {
+    width: 10px;
+    height: 1.2em;
+    background-color: var(--accent);
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Main Content Fade-in */
+#main-content {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+}
+
+#main-content.hidden {
+    opacity: 0;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    border-bottom: 1px dotted var(--border-color);
+}
+
+.nav-brand {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   Layout & Sections
+   ========================================================================== */
+.section {
+    padding: 5rem 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    border-bottom: 1px dotted var(--border-color);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-main);
+}
+
+.section-title .blink {
+    color: var(--accent);
+    animation: blink 1s step-end infinite;
+}
+
+/* UI Components (Cards, Buttons) */
+.card {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    /* Subtle retro touch: sharp corners, hard shadow */
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.5);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px var(--accent);
+    border-color: var(--accent);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid var(--accent);
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+}
+
+/* ==========================================================================
+   Hero / About Section
+   ========================================================================== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    min-height: 80vh;
+    border-bottom: 1px dotted var(--border-color);
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.greeting {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.subtitle {
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.bio {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero-image {
+    flex: 0.8;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.image-wrapper {
+    width: 250px;
+    height: 250px;
+    background-color: var(--bg-card);
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* 8-bit styling touch */
+    box-shadow: 8px 8px 0px 0px var(--border-color);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Optional: A subtle grayscale filter on hover for a tech feel */
+    transition: var(--transition);
+}
+
+.image-wrapper:hover .profile-photo {
+    filter: grayscale(100%) contrast(1.2);
+}
+
+/* ==========================================================================
+   Experience Timeline
+   ========================================================================== */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -2.4rem; /* Aligns with the line */
+    top: 0;
+    width: 14px;
+    height: 14px;
+    background-color: var(--bg-dark);
+    border: 2px solid var(--accent);
+    /* Retro diamond shape */
+    transform: rotate(45deg); 
+}
+
+.timeline-content h3 {
+    font-family: var(--font-main);
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 1.2rem;
+}
+
+.timeline-content .company {
+    display: block;
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-content p {
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Skills Grid
+   ========================================================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category h3 {
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+}
+
+.skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skill-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--text-muted);
+}
+
+.skill-list li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   Projects Grid
+   ========================================================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.project-header h3 {
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+.project-header a {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.project-header a:hover {
+    color: var(--accent);
+}
+
+.project-card p {
+    color: var(--text-muted);
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tags span {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    background-color: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.footer p {
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-3px);
+    /* Subtle retro shadow */
+    box-shadow: 3px 3px 0px 0px var(--accent);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    margin: 0 !important;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 4rem;
+    }
+
+    .hero-content {
+        margin-bottom: 3rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .nav-links {
+        display: none; /* Can implement a hamburger menu later if needed */
+    }
+}
