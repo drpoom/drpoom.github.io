@@ -5,3 +5,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mainContent) {
         mainContent.classList.remove('hidden');
     }
+});
