@@ -49,9 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Start boot sequence
-        setTimeout(typeLine, 500);
-    } else if (mainContent) {
-        // Not the home page, skip boot sequence
+    setTimeout(typeLine, 500);
+} else {
+    // Not the home page, or boot screen missing, just show main content
+    if (mainContent) {
         mainContent.classList.remove('hidden');
     }
+}
 });
