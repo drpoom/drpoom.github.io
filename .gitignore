@@ -1,0 +1,17 @@
+.DS_Store
+*.swp
+*~
+resources/Profile.pdf
+
+# Jekyll generated files
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Python / Virtual Environment (if any)
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
